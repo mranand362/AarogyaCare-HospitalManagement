@@ -53,45 +53,58 @@ const StatCard = ({ icon, label, value, color = 'cyan' }) => (
 );
 
 const HeroSection = () => (
-  <div className="bg-teal-50 text-gray-900">
-    <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
-      <div className="flex justify-center mb-6">
-        <span className="text-xs tracking-widest uppercase bg-teal-50 text-teal-800 border border-teal-200 px-4 py-1 rounded-full">
-          NABL & CAP Accredited Diagnostic Lab
+  <div className="relative bg-gradient-to-r from-teal-700 to-teal-600 text-white overflow-hidden">
+
+    {/* Background Pattern */}
+    <div className="absolute inset-0 opacity-10">
+      <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path
+              d="M 10 0 L 0 0 0 10"
+              fill="none"
+              stroke="white"
+              strokeWidth="0.5"
+            />
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
+
+      {/* Badge */}
+      <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
+        <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
+        <span className="text-xs font-medium tracking-widest uppercase">
+          NABL & CAP ACCREDITED DIAGNOSTIC LAB
         </span>
       </div>
 
-      <h1 className="text-center text-3xl md:text-5xl font-bold leading-tight">
-        Accurate & Trusted{' '}
-        <span className="text-teal-700">Diagnostic Services</span>
+      {/* Heading */}
+      <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+        Accurate & Trusted{" "}
+        <span className="text-teal-100">
+          Diagnostic Services
+        </span>
       </h1>
 
-      <p className="text-center text-gray-600 mt-5 max-w-2xl mx-auto text-base md:text-lg">
-        Advanced pathology testing with precise results, fast reporting, and reliable home sample collection.
+      {/* Description */}
+      <p className="mt-5 text-teal-100 max-w-2xl mx-auto text-base md:text-lg">
+        Advanced pathology testing with precise results, fast reporting,
+        and reliable home sample collection.
       </p>
 
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-        <a
-          href="tel:+9118001234567"
-          className="bg-teal-700 hover:bg-teal-800 text-white font-semibold px-6 py-3 rounded-lg transition"
-        >
-          Book Test Now
-        </a>
-        <button className="border border-teal-700 text-teal-700 hover:bg-teal-50 px-6 py-3 rounded-lg transition">
-          View Reports
-        </button>
-      </div>
+      <p className="mt-3 text-teal-200 text-sm md:text-base">
+        NABL Certified • Free Home Collection • Fast Digital Reports
+      </p>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 text-center">
-        <StatCard icon="🔬" label="Test Parameters" value="500+" />
-        <StatCard icon="👥" label="Patients Served" value="100K+" />
-        <StatCard icon="⏱️" label="Report Time" value="24–48h" />
-        <StatCard icon="⭐" label="Rating" value="4.9★" />
-      </div>
+
+
     </div>
   </div>
 );
-
 const SearchAndFilterBar = ({ searchTerm, setSearchTerm, viewMode, setViewMode, selectedCategory, setSelectedCategory }) => (
   <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
     <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
@@ -304,7 +317,7 @@ const TrustIndicators = () => {
 };
 
 const CTASection = () => (
-  <div className="bg-gradient-to-r from-teal-700 to-cyan-700 py-12 mt-8">
+  <div className="bg-gradient-to-r from-teal-700 to-cyan-700 py-2 mt-8">
     <div className="max-w-4xl mx-auto text-center px-4">
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Need Diagnostic Tests?</h2>
       <p className="text-teal-100 mb-6">Book your test online with free home sample collection</p>
