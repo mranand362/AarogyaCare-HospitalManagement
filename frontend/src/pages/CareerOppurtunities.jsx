@@ -14,7 +14,7 @@ const CareerOpportunities = () => {
   }, []);
 
   // Hide image on mobile (below 640px)
-  const showImage = windowWidth >= 640;
+  const showImage =true;
 
   // Medical Job Openings Data
   const jobOpenings = [
@@ -261,7 +261,7 @@ const CareerOpportunities = () => {
                 <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-teal-100 text-[9px] sm:text-xs">Magnet Recognized</span>
+                <span className="text-teal-100 text-[7.5px] sm:text-xs">Magnet Recognized</span>
               </div>
               <div className="w-px h-3 bg-white/30"></div>
               <div className="flex items-center gap-1">
@@ -275,26 +275,34 @@ const CareerOpportunities = () => {
 
           {/* Top Overflow Doctor Image - Hidden on mobile */}
           {showImage && (
-            <div
-              className={`
-                absolute 
-                right-0 
-                -top-8 sm:-top-5 md:-top-5 lg:-top-20
-                w-[35%] sm:w-[35%] md:w-[25%] lg:w-[28%]
-                h-[115%] sm:h-[130%]
-                pointer-events-none
-                animate-slideInRight
-              `}
-            >
-              <div className="relative w-full h-full group">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
-                <div className="absolute -inset-1 sm:-inset-2 rounded-full border border-white/20 animate-spin-slow"></div>
-                
-                <img
-                  src={doctorCareerImg}
-                  alt="Medical Professional"
-                  className="w-full h-full object-contain scale-110 sm:scale-125 drop-shadow-2xl transform transition-all duration-500 group-hover:scale-115 sm:group-hover:scale-130"
-                />
+<div
+  className="
+    absolute
+    right-0
+    bottom-0
+    w-[40%]
+    sm:w-[35%]
+    md:w-[25%]
+    lg:w-[28%]
+    pointer-events-none
+    animate-slideInRight
+    flex
+    items-end
+  "
+>
+  <div className="relative w-full group flex items-end">
+    <img
+      src={doctorCareerImg}
+      alt="Medical Professional"
+      className="
+        w-full
+        h-auto
+        object-contain
+        object-bottom
+        drop-shadow-2xl
+      "
+    />
+
 
                 {/* Patient Care Badge */}
                 <div className="absolute -left-4 sm:-left-5 top-1/3 bg-white rounded-xl shadow-lg p-1.5 sm:p-2 animate-float hidden sm:block">
@@ -432,7 +440,7 @@ const CareerOpportunities = () => {
                 
                 {/* ✅ LINK ADDED HERE - Apply Now button with Link */}
                 <Link to="/apply-now" state={{ jobTitle: job.title }}>
-                  <button className="w-full mt-2 bg-gray-50 text-teal-600 font-medium py-2 rounded-lg hover:bg-teal-600 hover:text-white transition-all duration-300 text-sm">
+                  <button className="w-full mt-2 bg-gray-50 text-teal-600 font-medium py-2 rounded-lg bg-teal-600 text-white transition-all duration-300 text-sm">
                     Apply Now →
                   </button>
                 </Link>
