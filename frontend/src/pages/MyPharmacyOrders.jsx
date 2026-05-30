@@ -24,9 +24,9 @@ const MyPharmacyOrders = () => {
       
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:5000/api/pharmacy/my-orders', {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
+    const response = await axios.get('https://aarogyacare-hospitalmanagement.onrender.com/api/pharmacy/my-orders', {
+  headers: { 'Authorization': `Bearer ${token}` }
+});
         
         console.log('Orders response:', response.data);
         
@@ -52,7 +52,7 @@ const MyPharmacyOrders = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:5000/api/pharmacy/orders/${orderId}/cancel`, {}, {
+      const response = await axios.put(`https://aarogyacare-hospitalmanagement.onrender.com/api/pharmacy/orders/${orderId}/cancel`, {}, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       

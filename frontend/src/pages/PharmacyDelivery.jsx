@@ -352,12 +352,12 @@ const PharmacyDelivery = () => {
 
       console.log('📦 Sending pharmacy order:', orderData);
       
-      const response = await axios.post('http://localhost:5000/api/pharmacy/orders', orderData, {
-        headers: { 
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
+  const response = await axios.post('https://aarogyacare-hospitalmanagement.onrender.com/api/pharmacy/orders', orderData, {
+  headers: { 
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  }
+});
       
       console.log('📥 Response:', response.data);
       
