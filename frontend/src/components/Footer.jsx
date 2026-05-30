@@ -1,23 +1,13 @@
 // Footer.jsx
-import React, { useState } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom'; // ✅ Add this import
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
+
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setIsSubscribed(true);
-      setEmail('');
-      setTimeout(() => setIsSubscribed(false), 3000);
-      // You can also send this email to your backend
-      console.log('Subscribed email:', email);
-    }
-  };
+
 
   // Navigation handlers
   // eslint-disable-next-line no-unused-vars
@@ -46,56 +36,7 @@ const Footer = () => {
       {/* Main Footer */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         
-        {/* Newsletter Section */}
-       <div className="hidden lg:block border-b border-teal-600/30 pb-10 mb-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="p-2 bg-emerald-500/20 rounded-full">
-                  <svg className="w-6 h-6 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
-                  Subscribe to Newsletter
-                </h3>
-              </div>
-              <p className="text-teal-100 text-sm sm:text-base ml-14">
-                Get latest health tips, offers and updates directly in your inbox.
-              </p>
-            </div>
-            <div>
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 rounded-lg bg-teal-900/50 border border-teal-600 text-white placeholder-teal-300 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                  Subscribe
-                </button>
-              </form>
-              {isSubscribed && (
-                <p className="text-emerald-300 text-sm mt-2 animate-fadeIn flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Successfully subscribed!
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-
+        
         {/* Footer Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
