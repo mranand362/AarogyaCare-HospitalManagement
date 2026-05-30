@@ -149,7 +149,7 @@ const FullNavbar = () => {
   return (
     <>
       {/* Top Bar - Hidden on mobile */}
-      <div className="bg-teal-800 text-white hidden sm:block">
+    <div className="bg-teal-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-2 flex justify-between items-center text-xs sm:text-sm">
             <div className="flex items-center gap-4">
