@@ -142,58 +142,81 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-600 to-teal-700 text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-white rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-white rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-              Contact <span className="text-teal-200">Us</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
-              Have questions? We'd love to hear from you. Reach out to us anytime, 
-              and our team will get back to you as soon as possible.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+<section className="relative bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 sm:py-20 md:py-24 overflow-hidden">
 
-      {/* Contact Info Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 md:-mt-12 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+  {/* Background Pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <svg
+      className="w-full h-full"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <pattern
+          id="contact-grid"
+          width="10"
+          height="10"
+          patternUnits="userSpaceOnUse"
         >
-          {contactInfo.map((info, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover="hover"
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 text-center cursor-pointer"
-            >
-              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{info.icon}</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{info.title}</h3>
-              <div className="space-y-1">
-                {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-gray-600 text-xs sm:text-sm">{detail}</p>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+          <path
+            d="M 10 0 L 0 0 0 10"
+            fill="none"
+            stroke="white"
+            strokeWidth="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#contact-grid)" />
+    </svg>
+  </div>
 
+  {/* Glow Effects */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute top-0 right-0 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-300/20 rounded-full blur-3xl"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    {/* Badge */}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-5"
+    >
+      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+      <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
+        24/7 Support & Assistance
+      </span>
+    </motion.div>
+
+    {/* Heading */}
+    <motion.h1
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5"
+    >
+      Contact <span className="text-teal-200">Us</span>
+    </motion.h1>
+
+    {/* Description */}
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      className="text-base sm:text-lg md:text-xl text-teal-50 max-w-3xl mx-auto leading-relaxed"
+    >
+      We’re here to answer your questions, assist your healthcare journey,
+      and provide the support you need anytime, anywhere.
+    </motion.p>
+
+  </div>
+</section>
       {/* Contact Form and Map Section */}
-      <section className="py-12 sm:py-16 md:py-20">
+     <section className="pt-6 pb-0 sm:pt-8 sm:pb-0 md:pt-10 md:pb-0"> 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             
@@ -203,7 +226,7 @@ const Contact = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl p-6 sm:p-8"
+              className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 self-start"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Send us a Message</h2>
               <p className="text-gray-600 mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>

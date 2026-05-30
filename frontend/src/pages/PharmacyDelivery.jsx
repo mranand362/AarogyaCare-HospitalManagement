@@ -405,62 +405,62 @@ const PharmacyDelivery = () => {
         </div>
       )}
 
-      {/* Hero Section */}
-      <div className="bg-teal-50 text-teal-700">
-        <div className="max-w-7xl mx-auto px-6 py-6 md:py-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 px-4 py-1 rounded-full text-xs tracking-widest uppercase mb-6">
-            Online Pharmacy • Fast & Trusted Delivery
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            Online <span className="text-emerald-700">Pharmacy</span>
-          </h1>
-          <p className="text-gray-600 mt-5 max-w-2xl mx-auto text-base md:text-lg">
-            Genuine medicines delivered to your doorstep with fast dispatch, verified quality, and reliable service.
-          </p>
-          <p className="text-emerald-700 mt-2 text-sm md:text-base">
-            Free delivery • Same-day dispatch • 24/7 availability
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-            <button
-              onClick={() => setShowCart(true)}
-              className="border border-emerald-700 text-white bg-teal-700 hover:bg-teal-700 px-6 py-3 rounded-lg transition"
-            >
-              Order Now ({cart.length})
-            </button>
-            <button
-              onClick={() => setShowCart(true)}
-              className="border border-emerald-700 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-lg transition"
-            >
-              View Cart ({cart.length})
-            </button>
-          </div>
-          <div className="grid grid-cols-2  bg-teal-700 md:grid-cols-4 gap-6 mt-14">
-            <div className="p-4 border rounded-lg">
-              <div className="text-2xl font-bold  text-white">1000+</div>
-              <div className="text-sm text-white mt-1">Medicines</div>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <div className="text-2xl font-bold text-white">50K+</div>
-              <div className="text-sm text-white mt-1">Customers</div>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <div className="text-2xl font-bold text-white">24h</div>
-              <div className="text-sm text-white   mt-1">Delivery</div>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <div className="text-2xl font-bold text-white">100%</div>
-              <div className="text-sm text-white mt-1">Genuine</div>
-            </div>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 mt-10 text-xs text-gray-500">
-            <span>✔ Genuine Medicines</span>
-            <span>✔ Free Delivery</span>
-            <span>✔ Prescription Upload</span>
-            <span>✔ 24/7 Support</span>
-          </div>
-        </div>
-      </div>
+     {/* Unified Hero Section */}
+<div className="relative bg-gradient-to-r from-teal-700 to-teal-600 text-white overflow-hidden">
 
+  {/* Background pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
+
+    {/* Badge */}
+    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
+      <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
+      <span className="text-xs font-medium tracking-widest">
+        ONLINE PHARMACY • FAST & TRUSTED
+      </span>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+      Online <span className="text-emerald-200">Pharmacy</span> Services
+    </h1>
+
+    {/* Description */}
+    <p className="mt-5 text-teal-100 max-w-2xl mx-auto text-base md:text-lg">
+      Genuine medicines delivered to your doorstep with fast dispatch, verified quality, and 24/7 healthcare support.
+    </p>
+
+    {/* CTA Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-10">
+      <button
+        onClick={() => setShowCart(true)}
+        className="bg-white text-teal-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition"
+      >
+        Order Now ({cart.length})
+      </button>
+
+      <button
+        onClick={() => setShowCart(true)}
+        className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white/10 transition"
+      >
+        View Cart ({cart.length})
+      </button>
+    </div>
+
+    
+
+  </div>
+</div>
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-0 py-6">
         {/* Search and Filter Section */}

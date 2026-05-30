@@ -107,7 +107,7 @@ const Header = () => {
   };
 
   const handleVideoConsultation = () => {
-    navigate('/doctors');  // Navigate to Doctors page (or change to '/video-consultation')
+    navigate('/services/video-consultation');  // Navigate to Doctors page (or change to '/video-consultation')
   };
 
   // Animation variants (rest remains same)

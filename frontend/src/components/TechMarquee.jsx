@@ -64,10 +64,10 @@ export default function TechMarquee() {
     <div className="relative overflow-hidden w-full py-4 bg-white">
 
       {/* Fade Left */}
-      <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r  z-10 pointer-events-none"></div>
 
       {/* Fade Right */}
-      <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l z-10 pointer-events-none"></div>
 
       {/* Marquee */}
       <div className="flex w-max animate-marquee gap-6">

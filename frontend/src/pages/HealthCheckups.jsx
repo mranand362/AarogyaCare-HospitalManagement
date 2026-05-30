@@ -438,85 +438,55 @@ const handleSubmit = async (e) => {
         </div>
       )}
 
-      {/* Hero Section */}
-<div className="bg-teal-50 text-teal-700">
+ {/* Unified Hero Section */}
+<div className="relative bg-gradient-to-r from-teal-700 to-teal-600 text-white overflow-hidden">
 
-  <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 text-center">
+  {/* Background Pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
 
     {/* Badge */}
-    <div className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-800 border border-cyan-200 px-4 py-1 rounded-full text-xs tracking-widest uppercase mb-6">
-      Preventive Healthcare Packages
+    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
+      <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
+      <span className="text-xs font-medium tracking-widest uppercase">
+        Preventive Healthcare Packages
+      </span>
     </div>
 
     {/* Heading */}
-    <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
       Health{" "}
-      <span className="text-cyan-700">Checkup Packages</span>
+      <span className="text-cyan-100">Checkup Packages</span>
     </h1>
 
-    {/* Subtext */}
-    <p className="text-gray-600 mt-5 max-w-2xl mx-auto text-base md:text-lg">
-      Comprehensive health screening packages designed for early detection, prevention, and long-term wellness.
+    {/* Description */}
+    <p className="mt-5 text-cyan-100 max-w-2xl mx-auto text-base md:text-lg">
+      Comprehensive health screening packages designed for early detection,
+      prevention, and long-term wellness.
     </p>
 
-    <p className="text-cyan-700 mt-2 text-sm md:text-base">
-      Early detection • Free home sample collection • Trusted NABL labs
+    <p className="mt-3 text-cyan-200 text-sm md:text-base">
+      Early Detection • Free Home Sample Collection • Trusted NABL Labs
     </p>
 
-    {/* CTA */}
-    <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+    
 
-      <a
-        href="tel:+9118001234567"
-        className="bg-cyan-700 hover:bg-cyan-800 text-white font-semibold px-6 py-3 rounded-lg transition"
-      >
-        Book Health Checkup
-      </a>
-
-      <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-50 px-6 py-3 rounded-lg transition">
-        View Packages
-      </button>
-
-    </div>
-
-    {/* Stats */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
-
-      <div className="p-4 border rounded-lg">
-        <div className="text-2xl font-bold text-cyan-700">50+</div>
-        <div className="text-sm text-gray-500 mt-1">Health Packages</div>
-      </div>
-
-      <div className="p-4 border rounded-lg">
-        <div className="text-2xl font-bold text-cyan-700">100K+</div>
-        <div className="text-sm text-gray-500 mt-1">Patients</div>
-      </div>
-
-      <div className="p-4 border rounded-lg">
-        <div className="text-2xl font-bold text-cyan-700">24–72h</div>
-        <div className="text-sm text-gray-500 mt-1">Report Time</div>
-      </div>
-
-      <div className="p-4 border rounded-lg">
-        <div className="text-2xl font-bold text-cyan-700">50%</div>
-        <div className="text-sm text-gray-500 mt-1">Discounts</div>
-      </div>
-
-    </div>
-
-    {/* Trust Row */}
-    <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-gray-500">
-      <span>✔ NABL Accredited Labs</span>
-      <span>✔ Free Home Collection</span>
-      <span>✔ Digital Reports</span>
-      <span>✔ Doctor Consultation</span>
-    </div>
+    
 
   </div>
-
 </div>
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         {/* Search and Filter Section */}
         <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">

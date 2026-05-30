@@ -347,23 +347,50 @@ const handleBookNow = (service) => {
       )}
 
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-teal-600 to-teal-500 rounded-2xl mb-4 shadow-lg">
-            <span className="text-white text-3xl">🏥</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-            Our <span className="text-teal-600 relative inline-block">
-              Healthcare Services
-              <svg className="absolute bottom-0 left-0 w-full h-3 text-teal-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0,5 L100,5" stroke="currentColor" strokeWidth="6" strokeLinecap="round"/>
-              </svg>
-            </span>
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600">
-            Comprehensive, affordable, and accessible healthcare – delivered with compassion and cutting-edge technology.
-          </p>
-        </div>
+{/* Header Section */}
+<div className="relative bg-gradient-to-r from-teal-700 to-teal-600 text-white py-16 md:py-20 overflow-hidden rounded-3xl">
+  
+  {/* Background Pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid-services" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path
+            d="M 10 0 L 0 0 0 10"
+            fill="none"
+            stroke="white"
+            strokeWidth="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid-services)" />
+    </svg>
+  </div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-4 text-center">
+
+    {/* Badge */}
+    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
+      <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+      <span className="text-xs font-medium tracking-wide">
+        ADVANCED & TRUSTED HEALTHCARE
+      </span>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+      Our <span className="text-teal-200">Healthcare Services</span>
+    </h1>
+
+    {/* Description */}
+    <p className="text-base sm:text-lg text-teal-100 max-w-2xl mx-auto">
+      Comprehensive, affordable, and accessible healthcare delivered with
+      compassion and cutting-edge technology.
+    </p>
+
+  </div>
+</div>
 
         {/* Search and Filter Section */}
         <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
