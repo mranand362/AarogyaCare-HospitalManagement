@@ -82,6 +82,7 @@ function App() {
             <Route path='/services/diagnostics' element={<Diagnostics />} />
             <Route path='/services/health-checkup' element={<HealthCheckups />} />
             <Route path='/services/pharmacy' element={<PharmacyDelivery />} />
+            <Route path='/pharmacy-delivery' element={<PharmacyDelivery />} />
             <Route path="/my-pharmacy-orders" element={<MyPharmacyOrders />} />
             <Route path="/my-bookings" element={<MyBookings />} />
             

@@ -8,7 +8,7 @@ import TechMarquee from '../components/TechMarquee'
 
 const Home = () => {
   return (
-    <div>
+    <div >
       <Header />
       <TechMarquee />
       <SpecialityMenu />
