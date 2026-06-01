@@ -1,29 +1,22 @@
 import React from 'react'
 import Header from '../components/Header'
 import SpecialityMenu from '../components/SpecialityMenu'
-import TopDoactors from './../components/TopDoactors';
-import Banner from './../components/Banner';
-import Footer from './../components/Footer';
-import { Routes } from 'react-router-dom';
-import TechMarquee from '../components/TechMarquee';
+import TopDoactors from './../components/TopDoactors'
+import Banner from './../components/Banner'
+import Footer from './../components/Footer'
+import TechMarquee from '../components/TechMarquee'
 
-
-const home = () => {
+const Home = () => {
   return (
     <div>
-      
-      <Header/>
+      <Header />
       <TechMarquee />
-      <SpecialityMenu/>
+      <SpecialityMenu />
       <TopDoactors />
       <Banner />
-      <Footer/>
-      <Routes>
-        
-      </Routes>
-      
+      <Footer />
     </div>
   )
 }
 
-export default home
+export default Home
