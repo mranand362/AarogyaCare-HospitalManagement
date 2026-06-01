@@ -356,7 +356,10 @@ const FullNavbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <>
-            <div className="fixed inset-0  z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
+           <div
+  className="fixed inset-0 bg-black/40 z-40 md:hidden"
+  onClick={() => setIsMobileMenuOpen(false)}
+/>
             <div ref={mobileMenuRef} className="fixed inset-0 bg-white shadow-xl z-50 md:hidden overflow-y-auto">
               <div className="px-4 py-4">
 

@@ -20,12 +20,30 @@ import doctor12 from "../assets/doc12.png";
 const DoctorCard = memo(({ doctor, index, onBookAppointment, onViewProfile }) => {
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle card click for mobile - direct navigation
+  const handleCardClick = () => {
+    if (isMobile) {
+      onViewProfile(doctor.id);
+    }
+  };
 
   return (
     <div
       className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
       style={{
         animation: `fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s both`
       }}
@@ -54,8 +72,8 @@ const DoctorCard = memo(({ doctor, index, onBookAppointment, onViewProfile }) =>
         {/* Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
-        {/* Quick Action Buttons - Visible on Hover */}
-        <div className={`absolute bottom-4 left-0 right-0 flex justify-center gap-2 transition-all duration-300 transform ${
+        {/* Quick Action Buttons - Visible on Hover (Desktop only) */}
+        <div className={`hidden md:flex absolute bottom-4 left-0 right-0 justify-center gap-2 transition-all duration-300 transform ${
           isHovered ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <button 
@@ -75,6 +93,28 @@ const DoctorCard = memo(({ doctor, index, onBookAppointment, onViewProfile }) =>
             className="bg-teal-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-700 transition-all duration-300 shadow-lg"
           >
             Profile
+          </button>
+        </div>
+
+        {/* Mobile Action Buttons - Always visible on mobile */}
+        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 md:hidden px-3">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              onBookAppointment(doctor.id);
+            }}
+            className="flex-1 bg-white text-teal-600 px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg active:scale-95 transition-transform"
+          >
+            Book Now
+          </button>
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              onViewProfile(doctor.id);
+            }}
+            className="flex-1 bg-teal-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg active:scale-95 transition-transform"
+          >
+            View Profile
           </button>
         </div>
       </div>
@@ -416,7 +456,6 @@ const TopDoctors = () => {
     navigate("/appointment", { state: { doctorId } });
   };
 
-  // ✅ Fix: Add this function for profile navigation
   const handleViewProfile = (doctorId) => {
     navigate(`/doctors/${doctorId}`);
   };
@@ -463,7 +502,7 @@ const TopDoctors = () => {
                   setSelectedSpecialty(specialty.id);
                   setVisibleDoctors(6);
                 }}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap active:scale-95 ${
                   selectedSpecialty === specialty.id
                     ? 'bg-gradient-to-r from-teal-600 to-teal-500 text-white shadow-lg'
                     : 'bg-white border border-gray-300 text-gray-700 hover:border-teal-500 hover:text-teal-600'
@@ -484,7 +523,7 @@ const TopDoctors = () => {
               doctor={doctor}
               index={index}
               onBookAppointment={handleBookAppointment}
-              onViewProfile={handleViewProfile}  // ✅ Pass the function
+              onViewProfile={handleViewProfile}
             />
           ))}
         </div>
@@ -495,7 +534,7 @@ const TopDoctors = () => {
             <button
               onClick={loadMore}
               disabled={isLoading}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
@@ -521,7 +560,7 @@ const TopDoctors = () => {
         <div className="text-center mt-8">
           <button
             onClick={() => navigate("/doctors")}
-            className="border-2 border-gray-300 bg-white hover:border-teal-500 text-gray-700 hover:text-teal-600 px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 transform hover:-translate-y-0.5"
+            className="border-2 border-gray-300 bg-white hover:border-teal-500 text-gray-700 hover:text-teal-600 px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
           >
             View All Doctors
           </button>
