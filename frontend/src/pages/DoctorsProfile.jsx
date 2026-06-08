@@ -628,26 +628,42 @@ const DoctorsProfile = () => {
           {/* Left Column - Doctor Info */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl shadow-lg p-6">
-              {/* Tabs */}
-              <div className="flex border-b border-gray-200 mb-6">
-                <button
-                  onClick={() => setActiveTab('about')}
-                  className={`px-4 py-2 font-medium transition-colors ${activeTab === 'about' ? 'text-teal-600 border-b-2 border-teal-600' : 'text-gray-500 hover:text-gray-700'}`}
-                >
-                  About Doctor
-                </button>
-                <button
-                  onClick={() => setActiveTab('experience')}
-                  className={`px-4 py-2 font-medium transition-colors ${activeTab === 'experience' ? 'text-teal-600 border-b-2 border-teal-600' : 'text-gray-500 hover:text-gray-700'}`}
-                >
-                  Experience & Education
-                </button>
-                <button
-                  onClick={() => setActiveTab('reviews')}
-                  className={`px-4 py-2 font-medium transition-colors ${activeTab === 'reviews' ? 'text-teal-600 border-b-2 border-teal-600' : 'text-gray-500 hover:text-gray-700'}`}
-                >
-                  Reviews ({reviews.length})
-                </button>
+              {/* Tabs - Responsive with horizontal scroll on mobile */}
+              <div className="border-b border-gray-200 mb-6">
+                <div className="flex overflow-x-auto scrollbar-hide">
+                  <div className="flex min-w-max">
+                    <button
+                      onClick={() => setActiveTab('about')}
+                      className={`px-4 py-2.5 font-medium transition-all duration-200 whitespace-nowrap ${
+                        activeTab === 'about' 
+                          ? 'text-teal-600 border-b-2 border-teal-600' 
+                          : 'text-gray-500 hover:text-gray-700'
+                      }`}
+                    >
+                      About Doctor
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('experience')}
+                      className={`px-4 py-2.5 font-medium transition-all duration-200 whitespace-nowrap ${
+                        activeTab === 'experience' 
+                          ? 'text-teal-600 border-b-2 border-teal-600' 
+                          : 'text-gray-500 hover:text-gray-700'
+                      }`}
+                    >
+                      Education
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('reviews')}
+                      className={`px-4 py-2.5 font-medium transition-all duration-200 whitespace-nowrap ${
+                        activeTab === 'reviews' 
+                          ? 'text-teal-600 border-b-2 border-teal-600' 
+                          : 'text-gray-500 hover:text-gray-700'
+                      }`}
+                    >
+                      Reviews ({reviews.length})
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* About Tab */}
@@ -720,7 +736,7 @@ const DoctorsProfile = () => {
               {/* Reviews Tab */}
               {activeTab === 'reviews' && (
                 <div className="space-y-6">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <h3 className="text-xl font-bold text-gray-800">Patient Reviews</h3>
                     <div className="flex items-center gap-2">
                       <div className="flex">{renderStars(doctor.rating)}</div>
@@ -740,7 +756,7 @@ const DoctorsProfile = () => {
                           </div>
                           <div className="flex ml-auto">{renderStars(review.rating)}</div>
                         </div>
-                        <p className="text-gray-600 text-sm ml-13">{review.comment}</p>
+                        <p className="text-gray-600 text-sm">{review.comment}</p>
                       </div>
                     ))}
                   </div>
@@ -774,7 +790,7 @@ const DoctorsProfile = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>{doctor.timings}</span>
+                  <span className="text-sm">{doctor.timings}</span>
                 </div>
               </div>
               <button
@@ -946,6 +962,13 @@ const DoctorsProfile = () => {
         }
         .animate-modal-pop {
           animation: modal-pop 0.2s ease-out;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </div>
