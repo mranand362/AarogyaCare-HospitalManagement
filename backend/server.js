@@ -27,6 +27,7 @@ app.use(
   cors({
     origin: [
       "https://aarogya-care-hospital-management.vercel.app",
+      "http://localhost:5173"
     ],
     credentials: true,
   })
